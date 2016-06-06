@@ -1,0 +1,15 @@
+# node modules
+node_modules/
+
+# DS_Store
+.DS_Store
+
+# config
+processes.json
+
+# logs
+*.log
+
+# tests
+test.js
+

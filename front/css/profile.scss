@@ -1,0 +1,88 @@
+
+@import "fonts/_fontAwesome.scss";
+
+/* Clearfix */
+.group:before, .group:after {
+    content:"";
+    display:table;
+}
+.group:after {
+    clear:both;
+}
+.group {
+    zoom:1; /*IE*/
+}
+
+
+$bg: #000000;
+$fontSize: 15px;
+
+$profileMargin: 20px;
+$profilePadding: 10px;
+
+$profileSize: 420px;
+$pictureSize: 320px;
+
+
+.profile {
+    float:left;
+    background: $bg;
+    width: $profileSize;
+    height: auto;
+    padding: $profilePadding;
+    margin: $profileMargin;
+}
+
+.info {
+    font-size: $fontSize;
+    color: white;
+    text-align: center;
+    display: block;
+
+    span {
+        font-style: italic;
+    }
+}
+
+.info-light {
+    @extend .info;
+    margin: 5px;
+}
+
+.picture {
+    background: white;
+    padding: $pictureSize / 20;
+    width: $pictureSize;
+    height: auto;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.actions {
+    ul {
+        margin-left: auto;
+        margin-right: auto; 
+        width: 100%; 
+    }
+
+    li {
+        list-style-type: none;
+        display: inline;
+        margin-right: 10px;
+    }
+}
+
+
+div.actions {
+    margin: 20px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+

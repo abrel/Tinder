@@ -1,0 +1,332 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+
+$bg: #eee;
+$phoneDetails: #d3d3d3;
+$phoneColor: #dfdfdf;
+$phoneWidth: 320px;
+$phoneHeight: 560px;
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+body {
+    background: $bg;
+}
+
+#phone {
+    width: $phoneWidth;
+    height: $phoneHeight;
+    background: $phoneColor;
+    margin: 0 auto;
+    border-radius: 25px;
+    position: relative;
+    top: 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    &:before, &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        background: $phoneDetails;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(255, 255, 255, 0.25);
+    }
+    &:after {
+        left: calc(50% - 20px);
+        bottom: 15px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%; 
+    }
+    &:before {
+        left: calc(50% - 20px);
+        top: 30px;
+        height: 10px;
+        width: 50px;
+        border-radius: 10px;
+    }
+}
+
+#app {
+    overflow: hidden;
+    background: #FFF;
+    width: $phoneWidth - 40px;
+    height: $phoneHeight - 140px;
+    position: absolute;
+    top: calc(50% - 210px);
+    left: calc(50% - 140px);
+}
+
+#app .header {
+    height: 50px;
+    margin-bottom: 10px;
+    background: #f6f6f6;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font: 18px "Open Sans";
+    line-height: 30px;
+    font-weight: 300;
+    color: #ddd;
+  
+    .top {
+        height: 16px;
+        position: relative;
+        font-family: "Open Sans";
+        font-size: 8px;
+        line-height: 16px;
+        color: #666;
+        text-transform: uppercase;
+        font-weight: 600;
+    
+        .left {
+            position: absolute;
+            top: 0;
+            left: 5px;
+        }
+        .center {
+            text-align: center;
+            font-size: 10px;
+        }
+        .right {
+            position: absolute;
+            top: 0;
+            right: 5px;
+        }
+    }
+  
+    #battery {
+        border: 1px solid #999;
+        border-radius: 2px;
+        height: 10px;
+        width: 20px;
+        position: relative;
+        display: inline-block;
+        margin-left: 2px;
+        margin-right: 2px;
+        right: 0;
+        top: 2px;
+        &:before {
+            content: '';
+            display: block;
+            width: 75%;
+            height: 100%;
+            background: #4d4;
+            border: 1px solid transparent;
+        }
+    }
+  
+}
+
+#people, .person {
+    width: 250px;
+    height: 265px;
+}
+
+#people {
+    position: relative;
+    margin: 0 auto;
+}
+
+.person {
+    position: absolute;
+    background-color: transparent;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: all .1s linear;
+    &:nth-child(1){
+        z-index: 5;
+        //animation: no 0.6s infinite;
+    }
+    &:nth-child(2){
+        z-index: 4;
+        top: 7px;
+        transform: scale(0.98);
+    }
+    &:nth-child(3){
+        z-index: 3;
+        top: 14px;
+        transform: scale(0.96);
+    }
+    &:nth-child(n+4){
+        z-index: 2;
+        transform: scale(0.7);
+    }
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        content: '';
+    }
+}
+
+.person img {
+    width: 105%;
+    background: white;
+}
+
+.person span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    padding: 10px;
+    font: 16px "Open Sans";
+    line-height: 30px;
+    color: #555;
+}
+
+.person span strong {
+    font-weight: 600;
+    color: #000;
+}
+
+$distance: 400px;
+
+@keyframes yes {
+    0% {
+        transform: scale(1) rotateZ(0deg);
+        left: 0;
+    }
+    30% { 
+        transform: scale(1.05) rotateZ(0deg);
+        left: 0;
+    }
+    100% {
+        transform: rotateZ(45deg);
+        left: $distance;
+    }
+}
+
+.animateYes {
+    animation-fill-mode: both;
+    animation: yes 0.6s linear;
+    &:before {
+        transform: rotateZ(-35deg);
+        background: url(http://i.imgur.com/Zkwj970.png) no-repeat center 10px;
+    }
+}
+
+@keyframes no {
+    0% {
+        transform: rotateZ(360deg);
+        right: 0;
+    }
+    30% {
+        transform: scale(1.05) rotateZ(360deg);
+        right: 0;
+    }
+    100% {
+        transform: rotateZ(315deg);
+        right: $distance;
+    } 
+}
+
+.animateNo {
+    animation-fill-mode: both;
+    animation: no 0.6s linear;
+    &:before {
+        transform: rotateZ(35deg);  
+        background: url(http://i.imgur.com/XqQZ4KR.png) no-repeat center 10px;
+    }
+}
+
+#control {
+    position: relative;
+    margin: 15px auto 0;
+    width: 250px;
+    .button {
+        width: 65px;
+        height: 65px;
+        background: #eee;
+        position: absolute;
+        top: 5px;
+        border-radius: 50%;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+        .trigger {
+            background: white;
+            display: block;
+            border-radius: 50%;
+            width: 75%;
+            height: 75%;
+            margin: 0 auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all .1s;
+            text-align: center;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            &:active {
+                transform: translateY(-50%) scale(0.75);
+                transition: all .05s linear;
+            }
+            &:before {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                font-family: 'FontAwesome';
+            }
+        }
+    } 
+  
+    .no {
+        left: 38px;
+        .trigger:before {
+            content: "\f00d";
+            font-size: 28px;
+            color: #c33;
+        }
+    }
+  
+    .yes {
+        right: 38px;
+        .trigger:before {
+            content: "\f004";
+            font-size: 22px;
+            color: #3b7;
+        }
+    }
+  
+    .info {
+        left: calc(50% - 23px);
+        top: 17px;
+        height: 46px;
+        width: 46px;
+        .trigger {
+            width: 65%;
+            height: 65%;
+            :before {
+                content: "\f05a";
+                font-size: 16px;
+                color: #3498db;
+            }
+        }   
+    }
+}
+
+#copy {
+    font: 12px "Open Sans";
+    color: #ccc; 
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    a {
+        color: #aaa;
+    }
+}
